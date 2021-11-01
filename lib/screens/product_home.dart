@@ -14,6 +14,7 @@ class ProductHome extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Shop'),
+        centerTitle: true,
       ),
         body: GridView.builder(
           itemCount: prod.items.length,

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:shopon/screens/product_home.dart';
 
 
 
@@ -9,11 +11,16 @@ class DrawerWidget extends StatelessWidget {
     return Drawer(
       child: Column(
         children: [
+
           AppBar(
             title: Text('Shopping'),
             centerTitle: true,
           ),
+          SizedBox(height: 40,),
           ListTile(
+            onTap: (){
+              Get.offAll(() => ProductHome());
+            },
             title: Text('Home'),
             leading: IconButton(
               onPressed: (){},
@@ -21,9 +28,14 @@ class DrawerWidget extends StatelessWidget {
             ),
           ),
           ListTile(
-            title: Text('Shop'),
+            onTap: (){
+
+            },
+            title: Text('Orders'),
             leading: IconButton(
-              onPressed: (){},
+              onPressed: (){
+
+              },
               icon: Icon(Icons.shopping_cart),
             ),
           ),

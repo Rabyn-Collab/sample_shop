@@ -41,6 +41,7 @@ List<Product> _items = [
   ),
 ];
 
+
 List<Product> get items{
   return [..._items];
 }
@@ -48,5 +49,9 @@ List<Product> get favouriteItems{
   return  items.where((element) => element.isFavourite == true).toList();
 }
 
-
+void toggle(String id){
+  final item = items.firstWhere((element) => element.id == id);
+  item.isFavourite = !item.isFavourite;
+  notifyListeners();
+}
 }

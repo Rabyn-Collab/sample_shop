@@ -1,5 +1,8 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+
+final prodProvider = ChangeNotifierProvider((ref) => Product());
 
 
 class Product extends ChangeNotifier{
@@ -11,6 +14,9 @@ class Product extends ChangeNotifier{
  final String imageUrl;
  bool isFavourite;
 
+
+ int currentIndex = 2;
+
  Product({
    this.imageUrl,
    this.description,
@@ -21,10 +27,10 @@ class Product extends ChangeNotifier{
  });
 
 
- void toggle(){
-   isFavourite = !isFavourite;
+
+ void toggleTheme(int index){
+   currentIndex = index;
    notifyListeners();
  }
-
 
 }

@@ -13,7 +13,7 @@ List<Product> _items = [
     id: '1',
     description: 'good one',
     isFavourite: false,
-    price: 700.50
+    price: 700
   ),
   Product(
       imageUrl: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2hvZXN8ZW58MHwwfDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
@@ -21,7 +21,7 @@ List<Product> _items = [
       id: '2',
       description: 'good one 1',
       isFavourite: false,
-      price: 800.50
+      price: 800
   ),
   Product(
       imageUrl: 'https://media.istockphoto.com/photos/clothes-blue-jeans-picture-id186870715?b=1&k=20&m=186870715&s=170667a&w=0&h=oXtYb930_QqApSUPvYp8HqNobs9t_wIGWK5xQEfTsbM=',
@@ -29,7 +29,7 @@ List<Product> _items = [
       id: '3',
       description: 'good one 2',
       isFavourite: false,
-      price: 700.50
+      price: 700
   ),
   Product(
       imageUrl: 'https://images.unsplash.com/photo-1495105787522-5334e3ffa0ef?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8amFja2V0fGVufDB8MHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
@@ -37,7 +37,7 @@ List<Product> _items = [
       id: '4',
       description: 'good one 5',
       isFavourite: false,
-      price: 900.50
+      price: 900
   ),
 ];
 

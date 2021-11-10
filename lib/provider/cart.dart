@@ -6,7 +6,7 @@ class Cart{
 String id;
 String title;
 int quantity;
-double price;
+int price;
 
 Cart({this.id, this.quantity, this.price, this.title});
 
@@ -23,8 +23,8 @@ class CartProvider extends ChangeNotifier{
     return items.length;
   }
 
-double totalAmount(){
- double total = 0.0;
+int totalAmount(){
+ int total = 0;
 
 items.forEach((key, cartItem) {
   total += cartItem.price * cartItem.quantity;
@@ -35,7 +35,7 @@ items.forEach((key, cartItem) {
 }
 
 
-void addItem(String prodId, double price, String title){
+void addItem(String prodId, int price, String title){
 if(items.containsKey(prodId)){
   items.update(prodId, (cartItem) => Cart(
     id: cartItem.id,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shopon/screens/order_screen.dart';
 import 'package:shopon/screens/product_home.dart';
 
 
@@ -29,7 +30,7 @@ class DrawerWidget extends StatelessWidget {
           ),
           ListTile(
             onTap: (){
-
+Get.to(() => OrderScreen());
             },
             title: Text('Orders'),
             leading: IconButton(

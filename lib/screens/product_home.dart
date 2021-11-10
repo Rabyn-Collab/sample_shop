@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:get/get.dart';
 import 'package:shopon/provider/cart.dart';
 import 'package:shopon/provider/products.dart';
-import 'package:shopon/screens/cart_screen.dart';
 import 'package:shopon/widgets/cart_widget.dart';
 import 'package:shopon/widgets/drawer_widget.dart';
 

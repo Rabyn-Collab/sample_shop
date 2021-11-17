@@ -26,7 +26,16 @@ class Product extends ChangeNotifier{
    this.price
  });
 
-
+factory Product.fromJson(Map<String, dynamic> json){
+  return Product(
+    id: json['id'],
+    title: json['title'],
+    price: json['price'],
+    isFavourite: json['isFavourite'],
+    imageUrl: json['imageUrl'],
+    description: json['description']
+  );
+}
 
  void toggleTheme(int index){
    currentIndex = index;

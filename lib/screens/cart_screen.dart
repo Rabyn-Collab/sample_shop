@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:get/get.dart';
 import 'package:shopon/provider/cart.dart';
-import 'package:shopon/provider/order.dart';
+import 'package:shopon/provider/orders.dart';
+import 'package:shopon/screens/order_screen.dart';
+
 
 
 class CartScreen extends ConsumerWidget {
@@ -32,7 +35,8 @@ class CartScreen extends ConsumerWidget {
                     ),
                     TextButton(onPressed: (){
                       context.read(orderProvider).addOrder(cart.items.values.toList(), cart.totalAmount());
-                      context.read(cartProvider).clear();
+                     context.read(cartProvider).clear();
+                     Get.to(() => OrderScreen());
                     }, child: Text('Order now'))
                   ],
                 ),

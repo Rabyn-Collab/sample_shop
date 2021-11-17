@@ -30,12 +30,11 @@ class DrawerWidget extends StatelessWidget {
           ),
           ListTile(
             onTap: (){
-Get.to(() => OrderScreen());
+              Get.to(() => OrderScreen());
             },
             title: Text('Orders'),
             leading: IconButton(
               onPressed: (){
-
               },
               icon: Icon(Icons.shopping_cart),
             ),

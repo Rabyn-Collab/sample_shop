@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shopon/screens/myproduct.dart';
 import 'package:shopon/screens/order_screen.dart';
 import 'package:shopon/screens/product_home.dart';
 
@@ -33,6 +34,17 @@ class DrawerWidget extends StatelessWidget {
               Get.to(() => OrderScreen());
             },
             title: Text('Orders'),
+            leading: IconButton(
+              onPressed: (){
+              },
+              icon: Icon(Icons.shopping_cart),
+            ),
+          ),
+          ListTile(
+            onTap: (){
+              Get.to(() => MyProductScreen());
+            },
+            title: Text('My Products'),
             leading: IconButton(
               onPressed: (){
               },

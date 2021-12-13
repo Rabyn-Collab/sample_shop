@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 import 'package:shopon/provider/products.dart';
 import 'package:shopon/screens/product_add_form.dart';
+import 'package:shopon/screens/product_edit_form.dart';
 
 
 
@@ -42,11 +43,11 @@ class MyProductScreen extends ConsumerWidget {
                         child: Row(
                           children: [
                             IconButton(onPressed: (){
-
+                              Get.to(() => ProductEditFrom(data[index]));
                             }, icon: Icon(Icons.edit)),
                             IconButton(
                                 onPressed: (){
-
+                                  context.read(productProvider).removeProduct(data[index]);
                                 }, icon: Icon(Icons.delete)),
                           ],
                         ),

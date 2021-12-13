@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shopon/provider/product.dart';
+import 'package:shopon/provider/products.dart';
 
 class ProductAddFrom extends StatelessWidget {
 
@@ -41,7 +43,18 @@ class ProductAddFrom extends StatelessWidget {
                 controller: priceController
               ),
                   SizedBox(height: 5,),
-                  ElevatedButton(onPressed: (){}, child: Text('Submit'))
+                  ElevatedButton(onPressed: (){
+          _form.currentState.save();
+
+          final newProduct  = Product(
+            title: titleController.text,
+            imageUrl: imageController.text,
+            price: int.tryParse(priceController.text) ,
+            description: descController.text
+          );
+          context.read(productProvider).addProduct(newProduct);
+                    
+                  }, child: Text('Submit'))
                 ],
               ),
             ),

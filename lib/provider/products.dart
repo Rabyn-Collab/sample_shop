@@ -1,11 +1,11 @@
 import 'dart:convert';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shopon/provider/product.dart';
 import 'package:http/http.dart' as http;
-final productProvider = ChangeNotifierProvider((ref) => Products());
 
+
+final productProvider = ChangeNotifierProvider((ref) => Products());
 final streamProduct = StreamProvider((ref) => Products().productStream());
 final futureProduct = FutureProvider((ref) => Products().getData());
 
@@ -64,22 +64,71 @@ List<Product> get items{
 
   }
 
-
+  final url = 'https://61951fdc74c1bd00176c6b9b.mockapi.io/products';
 //future provider
-Future<List<Product>> getData() async{
-
-const url = 'https://61951fdc74c1bd00176c6b9b.mockapi.io/products';
-
-try{
-   final response = await http.get(Uri.parse(url));
-   final extractData = jsonDecode(response.body);
-   List<Product>  datas = (extractData as List).map((e) => Product.fromJson(e)).toList();
-   return datas;
-}catch(err){
-  print(err);
+Future<List<Product>> getData() async {
+  try {
+    final response = await http.get(Uri.parse(url));
+    final extractData = jsonDecode(response.body);
+    List<Product> datas = (extractData as List)
+        .map((e) => Product.fromJson(e))
+        .toList();
+    return datas;
+  } catch (err) {
+    print(err);
+  }
 }
 
-}
+//add data
+  Future<void> addProduct(Product product) async {
+    try {
+      await http.post(Uri.parse(url),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: jsonEncode({
+          'title': product.title,
+          'price': product.price,
+          'isFavourite': product.isFavourite,
+          'imageUrl': product.imageUrl,
+          ' description': product.description
+        }),
+      );
+    } catch (err) {
+      print(err);
+    }
+  }
+
+
+
+
+
+  Future<void> updateProduct(Product product) async {
+    try {
+      await http.patch(Uri.parse('https://61951fdc74c1bd00176c6b9b.mockapi.io/products/${product.id}'),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: jsonEncode({
+          'title': product.title,
+          'price': product.price,
+          'isFavourite': product.isFavourite,
+          'imageUrl': product.imageUrl,
+          ' description': product.description
+        }),
+      );
+    } catch (err) {
+      print(err);
+    }
+  }
+
+  Future<void> removeProduct(Product product) async {
+    try {
+      await http.delete(Uri.parse('https://61951fdc74c1bd00176c6b9b.mockapi.io/products/${product.id}'));
+    } catch (err) {
+      print(err);
+    }
+  }
 
 
 
@@ -88,30 +137,13 @@ try{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-List<Product> get favouriteItems{
-  return  items.where((element) => element.isFavourite == true).toList();
-}
-
-void toggle(String id){
-  final item = items.firstWhere((element) => element.id == id);
-  item.isFavourite = !item.isFavourite;
-  notifyListeners();
-}
-}
+// List<Product> get favouriteItems{
+//   return  items.where((element) => element.isFavourite == true).toList();
+// }
+//
+// void toggle(String id){
+//   final item = items.firstWhere((element) => element.id == id);
+//   item.isFavourite = !item.isFavourite;
+//   notifyListeners();
+// }
+ }

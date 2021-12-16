@@ -43,6 +43,7 @@ class ProductHome extends ConsumerWidget {
                       crossAxisSpacing: 10,
                       mainAxisExtent: 190),
                   itemBuilder: (context, index) {
+                    final prods = product[index];
                     return  ClipRRect(
                       borderRadius: BorderRadius.circular(10),
                       child: GridTile(
@@ -56,7 +57,7 @@ class ProductHome extends ConsumerWidget {
                           ),
                           trailing: IconButton(
                             onPressed: () {
-                              context.read(cartProvider).addItem(prod.items[index].id, prod.items[index].price, prod.items[index].title);
+                              context.read(cartProvider).addItem(prods.id, prods.price, prods.title);
                             },
                             icon: Icon(Icons.shopping_cart),
                           ),

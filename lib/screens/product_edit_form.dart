@@ -28,38 +28,38 @@ class ProductEditFrom extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       _buildTextFormField(
-                          label: product.title,
-                          controller: titleController,
+                          label: 'Title',
+                          controller: titleController..text = product.title,
                       ),
                       SizedBox(height: 5,),
                       _buildTextFormField(
-                          label: product.description,
-                          controller: descController
+                          label: 'Description',
+                          controller: descController..text = product.description
                       ),
                       SizedBox(height: 5,),
                       _buildTextFormField(
-                          label: product.imageUrl.substring(0, 20),
-                          controller: imageController
+                          label: 'ImageUrl',
+                          controller: imageController..text = product.imageUrl
                       ),
                       SizedBox(height: 5,),
                       _buildTextFormField(
-                          label: product.price.toString(),
-                          controller: priceController
+                          label: 'Price',
+                          controller: priceController..text = product.price.toString()
                       ),
                       SizedBox(height: 5,),
-                      ElevatedButton(onPressed: (){
+                      ElevatedButton(
+                          onPressed: (){
                         _form.currentState.save();
-
                         final newProduct  = Product(
                             title: titleController.text,
-                            imageUrl: 'https://media.istockphoto.com/photos/brown-leather-shoe-picture-id187310279?b=1&k=20&m=187310279&s=170667a&w=0&h=5Fc9XC5hfvpffZwfE-BzK6DcajqdN3sQjnPJa-Z0Rnk=',
                             price: int.tryParse(priceController.text) ,
+                            imageUrl: imageController.text,
                             description: descController.text,
                           id: product.id,
                           isFavourite: false
                         );
                         context.read(productProvider).updateProduct(newProduct);
-
+                        Navigator.of(context).pop();
                       }, child: Text('Submit'))
                     ],
                   ),

@@ -50,7 +50,8 @@ class ProductAddFrom extends StatelessWidget {
             title: titleController.text,
             imageUrl: imageController.text,
             price: int.tryParse(priceController.text) ,
-            description: descController.text
+            description: descController.text,
+            isFavourite: false
           );
           context.read(productProvider).addProduct(newProduct);
                     

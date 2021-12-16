@@ -91,7 +91,7 @@ Future<List<Product>> getData() async {
           'price': product.price,
           'isFavourite': product.isFavourite,
           'imageUrl': product.imageUrl,
-          ' description': product.description
+          'description': product.description
         }),
       );
     } catch (err) {

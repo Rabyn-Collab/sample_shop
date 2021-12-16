@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
@@ -38,6 +37,7 @@ class MyProductScreen extends ConsumerWidget {
                       leading: Container(
                         child: Image.network(data[index].imageUrl),
                       ),
+                   title: Text(data[index].title),
                       trailing: Container(
                         width: 100,
                         child: Row(

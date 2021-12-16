@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 
@@ -9,6 +10,25 @@ int quantity;
 int price;
 
 Cart({this.id, this.quantity, this.price, this.title});
+
+
+factory Cart.fromJson(Map<String, dynamic> json){
+  return Cart(
+    title: json['title'],
+    quantity: json['quantity'],
+    price: json['price'],
+    id: json['id']
+  );
+}
+
+Map<String, dynamic> toJson(){
+  return {
+    'id': this.id,
+    'title' : this.title,
+    'quantity': this.quantity,
+    'price': this.price
+  };
+}
 
 
 }
